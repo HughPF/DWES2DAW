@@ -49,6 +49,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     fwrite($fichero, $linea);
     fclose($fichero);
 
-    echo "<p>Alumno guardado correctamente en alumnos1.txt</p>";
+    echo "<p>Alumno guardado correctamente en alumnos2.txt</p>";
 }
 ?>
