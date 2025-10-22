@@ -40,24 +40,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $fecha_nac = $_POST['fecha_nac'] ?? '';
     $localidad = $_POST['localidad'] ?? '';
 
-    // Función para rellenar con espacios hasta una longitud fija
-    function ajustarCampo($texto, $longitud) {
-        $texto = substr($texto, 0, $longitud); // Recorta si excede
-        return str_pad($texto, $longitud, " "); // Rellena con espacios
-    }
 
-    // Generamos la línea con las posiciones exactas
-    $linea = ajustarCampo($nombre, 40) .
-             ajustarCampo($apellido1, 41) .
-             ajustarCampo($apellido2, 42) .
-             ajustarCampo($fecha_nac, 10) .
-             ajustarCampo($localidad, 27) . "\n";
+    // Generamos la linea unida por ##
+    $linea = $nombre."##".$apellido1."##".$apellido2."##".$fecha_nac."##".$localidad;
 
     // Guardamos en el fichero alumnos1.txt
-    $fichero = fopen("alumnos1.txt", "a"); // 'a' para añadir sin borrar
+    $fichero = fopen("alumnos2.txt", "a"); // 'a' para añadir sin borrar
     fwrite($fichero, $linea);
     fclose($fichero);
 
-    echo "<p>Alumno guardado correctamente en alumnos2.txt</p>";
+    echo "<p>Alumno guardado correctamente en alumnos1.txt</p>";
 }
 ?>
